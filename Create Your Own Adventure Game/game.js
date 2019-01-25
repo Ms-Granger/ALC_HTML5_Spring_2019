@@ -13,7 +13,38 @@ Multiline comment
 // confirm("Do you like pokemon?");
 
 // ("What type of pokemon do you like?");
+Game();
 
-var pc = prompt("What is your name?");
-
-confirm("So your name is "+pc);
+function Game(){
+    
+    document.write("");
+    var playerName = prompt("What is your name?");
+    alert("Welcome "+ playerName);
+    
+    School();
+        
+    function School(){
+            var school = prompt("").toLowerCase();
+            
+            if(school == "look around" || school == "look"){
+                    var schoolLook = prompt("The classroom is ");
+            }
+            else if(school == "think"){
+                    alert("You ");
+                    var resume = confirm("Do you wish to continue?");
+                    
+                    if(resume){
+                        School();
+                    }
+                    else{
+                            alert("Game Over!!");
+                    
+                    }
+                }
+        } 
+    
+    
+    
+    
+    
+}
