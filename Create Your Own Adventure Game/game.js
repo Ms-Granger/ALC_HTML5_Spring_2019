@@ -12,7 +12,7 @@ Multiline comment
 
 // confirm("Do you like pokemon?");
 
-// prompt("What type of pokemon do you like?");
+// ("What type of pokemon do you like?");
 
 var pc = prompt("What is your name?");
 
