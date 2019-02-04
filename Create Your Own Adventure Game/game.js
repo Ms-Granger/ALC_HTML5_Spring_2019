@@ -13,19 +13,20 @@ var inventory = {
     map:0,
 }
 // Javascript Object for ememyInventory
-var Ememyinventory = {
-    coins:100,
-    sword:1,
-    health:100,
-}
+// var enemyInventory = {
+   // coins:100,
+   // sword:1,
+   // health:100,
+// }
 
 Game();
 
 function Game(){
     
-    document.write("");
+    // document.write("");
+    alert("A Far Way from Home");
     var playerName = prompt("What is your name?");
-    alert("Welcome "+ playerName);
+    alert("Welcome!"+ playerName);
     
     School();
         
@@ -36,7 +37,7 @@ function Game(){
                     var schoolLook = prompt("The Gym is big with four doors.There is a door in front of you, A door to your right, A door to your left. And a door behind you. Which path will you take? Or will you Quit before you even started!");
             }
             else if(school == "think"){
-                    alert("You ");
+                    alert("You think Hey do I actully want to plaay this game");
                     var resume = confirm("Do you wish to continue?");
                     
                     if(resume){
@@ -60,31 +61,35 @@ function Game(){
             if(swampPath = "enter"){
                 alert("You entered the hut. There is a Witch bend over a black cauldron on the fire.");
                 var insideHut = prompt("\n -say hello \n- look at \n -kill witch")
-                if(insideHut == "say hello" || insideHut == "say hi");
+                if(insideHut == "say hello" || insideHut == "say hi"){
                     var huthello = prompt("You say hello and the witch turns around and She is shooked that someone was nice enough to say hello that she give you a health potion.");
-                else if(insideHut == "look at" || insideHut == "look");
+                    }
+                else if(insideHut == "look at" || insideHut == "look"){
                     var hutlook = prompt("You look at the Witch and you realize she is making some dinner for herself. \n -introduce yourself /n -kill her");
                     var hiwitch = prompt("Hello my name is" +playerName);
                     var killwitch = prompt("Wow you killed her. Gain a health potion");
-                else if(insideHut == "kill witch");
+                    }
+                else if(insideHut == "kill witch"){
                         var attackWitch = prompt("You rush the witch and smit her before she realizes you were there. You are now WitcHunter. Gain a health potion");
+                    }
                     
             }
             else if(swampPath = "burn down hut"){
                 alert("You burn down the hut... You are an evil person.");
             }
             else{
-                alert("Don't throw Rocks at the hut Please!")
+                alert("Don't throw Rocks at the hut Please!");
             }
             
     }
     else if(swampEnv == "Swim"){
         
     }
-        function Blacksmithshop(){
-            alert("THe Blacksmith wonders why a bug is in his shop");
-                var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n- leave shop");
-                    if(blacksmith == "sword" || blacksmith "buy sword" && inventory.coins >=100){
+    }
+    function Blacksmithshop(){
+            alert("The Blacksmith wonders why a bug is in his shop");
+                var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n -leave shop");
+                    if(blacksmith == "sword" || blacksmith == "buy sword" && inventory.coins >=100){
                         var swordBuy = confirm("Are you sure you want to buy this sword?");
                         if(swordBuy){
                             // Adds sword +1
@@ -101,4 +106,7 @@ function Game(){
                         alert("Have a good day, come back again!");
                         Village();
                      }
+
+            }
     }
+}
