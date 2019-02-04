@@ -5,14 +5,20 @@ Multiline comment
 
 */
 
-// document.write("<h1>I can't wait for <em>spring!<em><h1>");
+// Javascript Object for inventory
+var inventory = {
+    coins:100, 
+    sword:0,
+    health:50,
+    map:0,
+}
+// Javascript Object for ememyInventory
+var Ememyinventory = {
+    coins:100,
+    sword:1,
+    health:100,
+}
 
-
-// alert("Warning! Will Robinson... Warning!");
-
-// confirm("Do you like pokemon?");
-
-// ("What type of pokemon do you like?");
 Game();
 
 function Game(){
@@ -58,8 +64,10 @@ function Game(){
                     var huthello = prompt("You say hello and the witch turns around and She is shooked that someone was nice enough to say hello that she give you a health potion.");
                 else if(insideHut == "look at" || insideHut == "look");
                     var hutlook = prompt("You look at the Witch and you realize she is making some dinner for herself. \n -introduce yourself /n -kill her");
+                    var hiwitch = prompt("Hello my name is" +playerName);
+                    var killwitch = prompt("Wow you killed her. Gain a health potion");
                 else if(insideHut == "kill witch");
-                        var attackWitch = prompt("You rush the witch and smit her before she realizesyou were there. You are now witchunter. Gain a streaght potion");
+                        var attackWitch = prompt("You rush the witch and smit her before she realizes you were there. You are now WitcHunter. Gain a health potion");
                     
             }
             else if(swampPath = "burn down hut"){
@@ -72,4 +80,25 @@ function Game(){
     }
     else if(swampEnv == "Swim"){
         
+    }
+        function Blacksmithshop(){
+            alert("THe Blacksmith wonders why a bug is in his shop");
+                var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n- leave shop");
+                    if(blacksmith == "sword" || blacksmith "buy sword" && inventory.coins >=100){
+                        var swordBuy = confirm("Are you sure you want to buy this sword?");
+                        if(swordBuy){
+                            // Adds sword +1
+                            inventory.sword ++;
+                            // displays swords owned
+                            alert("You own" +inventory.sword+"swords");
+                            // Takes money out of account for swords
+                            inventory.coins = inventory.coins - 100;
+                            // displays coins left in account
+                            alert("You have "+inventory.coins+"coins remaining");
+                            Blacksmith();
+                        }
+                        else{
+                        alert("Have a good day, come back again!");
+                        Village();
+                     }
     }
