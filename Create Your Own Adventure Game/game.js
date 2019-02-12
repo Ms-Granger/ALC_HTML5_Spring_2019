@@ -5,20 +5,44 @@ Multiline comment
 
 */
 
-// Javascript Object for inventory
-var inventory = {
-    coins:100, 
-    sword:0,
-    health:50,
-    map:0,
+var player = {
+	name:"Fred",
+	health:100,	
+	inventory:{
+		keys:{
+			home:0,
+            hut:0,
+			inn:0,
+		},
+		food:{
+			water:1,
+			bread:0,
+			fish:0,
+			apple:0,			
+		},
+		weapons:{
+			sword:0,
+			axe:0,
+			knife:0,
+            bow:0,
+            arrows:0,
+		},
+		armor:{
+			shield:0,
+			armor:0,
+		}		
+	}
+	
 }
-// Javascript Object for ememyInventory
- var enemyInventory = {
-    coins:100,
-    sword:1,
-    health:100,
- }
 
+function GetRandInt(max){
+	var randInt = Math.floor(Math.random()* Math.floor(max));
+	
+	return randInt;
+	
+}
+ 
+// Start Game
 Game();
 
 function Game(){
@@ -97,10 +121,10 @@ function Game(){
                     else{
                             alert("Game Over!!");
                     }
-                }
                 
-                else if(Swamp == "blacksmithshop"){
-                        Blacksmithshop();
+                
+    else if(Swamp == "blacksmithshop"){
+            Blacksmithshop();
                 }
                 
                 else{
@@ -109,6 +133,7 @@ function Game(){
                 }
     else{
             alert("I don't understand"+swampEnv);
+    }
     }
     
     function Blacksmithshop(){
@@ -139,9 +164,33 @@ function Game(){
                     
                     switch(insideforest){
                         case "top left" || "go top left":
-                            var topleft = prompt("you move forward then to the left.");
+                            var topleft = prompt("you move forward then go to the left.");
                             Forest();
                         break;
+                        case "top right":
+					           alert("you go forward then right");
+                                Forest();
+                        break;
+				        case "left":
+					           alert("you go to the left");
+					           Forest();
+				        break;
+				        case "right":
+					           alert("you go to the right");
+					           Forest();
+				        break;
+                        case "bottom left":
+					           alert("you go to the bottom left");
+					           Forest();
+                        break;
+                        case "bottom right":
+					           alert("you go to the bottom right");
+					           Forest();
+                        break;
+				        default:
+					           alert("I don't know what "+insideforest+" is!");
+					           Forest();
+                        break; 
                     }
     }
 }
