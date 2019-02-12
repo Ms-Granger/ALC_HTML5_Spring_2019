@@ -13,11 +13,11 @@ var inventory = {
     map:0,
 }
 // Javascript Object for ememyInventory
-// var enemyInventory = {
-   // coins:100,
-   // sword:1,
-   // health:100,
-// }
+ var enemyInventory = {
+    coins:100,
+    sword:1,
+    health:100,
+ }
 
 Game();
 
@@ -37,7 +37,7 @@ function Game(){
                     var schoolLook = prompt("The Gym is big with four doors.There is a door in front of you, A door to your right, A door to your left. And a door behind you. Which path will you take? Or will you Quit before you even started!");
             }
             else if(school == "think"){
-                    alert("You think Hey do I actully want to plaay this game");
+                    alert("You think Hey do I actully want to play this game");
                     var resume = confirm("Do you wish to continue?");
                     
                     if(resume){
@@ -46,6 +46,10 @@ function Game(){
                     else{
                             alert("Game Over!!");
                     }
+                }
+                
+                else if(school == "swamp"){
+                        Swamp();
                 }
                 
                 else{
@@ -85,7 +89,28 @@ function Game(){
     else if(swampEnv == "Swim"){
         
     }
+    var resume = confirm("Do you wish to continue?");
+                    
+                    if(resume){
+                        Swamp();
+                    }
+                    else{
+                            alert("Game Over!!");
+                    }
+                }
+                
+                else if(Swamp == "blacksmithshop"){
+                        Blacksmithshop();
+                }
+                
+                else{
+                    alert("I don't know what "+Swamp+" is!");
+                    Swamp();
+                }
+    else{
+            alert("I don't understand"+swampEnv);
     }
+    
     function Blacksmithshop(){
             alert("The Blacksmith wonders why a bug is in his shop");
                 var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n -leave shop");
@@ -108,5 +133,15 @@ function Game(){
                      }
 
             }
+    }
+    function Forest(){
+                    var insideforest = prompt("-top left -top right -left -right -bottom left -bottom right").toLowerCase();
+                    
+                    switch(insideforest){
+                        case "top left" || "go top left":
+                            var topleft = prompt("you move forward then to the left.");
+                            Forest();
+                        break;
+                    }
     }
 }
