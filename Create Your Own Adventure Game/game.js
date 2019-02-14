@@ -48,17 +48,30 @@ Game();
 function Game(){
     
     // document.write("");
-    alert("A Far Way from Home");
+    alert("");
     var playerName = prompt("What is your name?");
-    alert("Welcome!"+ playerName);
+    alert("Hello" + playerName);
     
     School();
         
     function School(){
-            var school = prompt("You are in a Gym ").toLowerCase();
+            var school = prompt("You are in a Gym. You can look around.").toLowerCase();
             
             if(school == "look around" || school == "look"){
                     var schoolLook = prompt("The Gym is big with four doors.There is a door in front of you, A door to your right, A door to your left. And a door behind you. Which path will you take? Or will you Quit before you even started!");
+                    var inschool = prompt( "\n- go left \n- go right \n- go forward \n- go behind")
+                if(inschool == "go left" || inschool == "left"){
+                    var inschool = prompt("");
+                    }
+                else if(insideHut == "look at" || insideHut == "look"){
+                    var hutlook = prompt("You look at the Witch and you realize she is making some dinner for herself. \n -introduce yourself /n -kill her");
+                    var hiwitch = prompt("Hello my name is" +playerName);
+                    var killwitch = prompt("Wow you killed her. Gain a health potion");
+                    }
+                else if(insideHut == "kill witch"){
+                        var attackWitch = prompt("You rush the witch and smit her before she realizes you were there. You are now WitcHunter. Gain a health potion");
+                    }
+                    
             }
             else if(school == "think"){
                     alert("You think Hey do I actully want to play this game");
@@ -113,24 +126,7 @@ function Game(){
     else if(swampEnv == "Swim"){
         
     }
-    var resume = confirm("Do you wish to continue?");
-                    
-                    if(resume){
-                        Swamp();
-                    }
-                    else{
-                            alert("Game Over!!");
-                    }
-                
-                
-    else if(Swamp == "blacksmithshop"){
-            Blacksmithshop();
-                }
-                
-                else{
-                    alert("I don't know what "+Swamp+" is!");
-                    Swamp();
-                }
+    
     else{
             alert("I don't understand"+swampEnv);
     }
