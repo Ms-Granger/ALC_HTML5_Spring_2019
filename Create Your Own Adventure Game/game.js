@@ -4,15 +4,20 @@
 Multiline comment
 
 */
+var checkCoins = function(){
+	alert("Gold Coins: "+player.inventory.coins.gold+);
+}
 
 var player = {
 	name:"Fred",
 	health:100,	
 	inventory:{
+        coins:{
+            gold:20
+        },
 		keys:{
-			home:0,
+			chest:0
             hut:0,
-			inn:0,
 		},
 		food:{
 			water:1,
@@ -26,6 +31,7 @@ var player = {
 			knife:0,
             bow:0,
             arrows:0,
+            stick:0,
 		},
 		armor:{
 			shield:0,
@@ -89,11 +95,75 @@ function Game(){
                         Swamp();
                 }
                 
+                else if(school == "coins"){
+                        checkCoins();
+                        School();
+                }
+                
                 else{
                     alert("I don't know what "+school+" is!");
                     School();
                 }
-            } 
+            }
+    
+    function Blacksmithshop(){
+            alert("The Blacksmith wonders why a bug is in his shop");
+                var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n -leave shop");
+                    if(blacksmith == "sword" || blacksmith == "buy sword" && inventory.coins >=100){
+                        var swordBuy = confirm("Are you sure you want to buy this sword?");
+                        if(swordBuy){
+                            // Adds sword +1
+                            inventory.sword ++;
+                            // displays swords owned
+                            alert("You own" +inventory.sword+"swords");
+                            // Takes money out of account for swords
+                            inventory.coins = inventory.coins - 100;
+                            // displays coins left in account
+                            alert("You have "+inventory.coins+"coins remaining");
+                            Blacksmith();
+                        }
+                        else{
+                        alert("Have a good day, come back again!");
+                        Village();
+                     }
+
+            }
+    }
+    
+    function Forest(){
+                    var insideforest = prompt("-top left -top right -left -right -bottom left -bottom right").toLowerCase();
+                    
+                    switch(insideforest){
+                        case "top left" || "go top left":
+                            var topleft = prompt("you move forward then go to the left.");
+                            Forest();
+                        break;
+                        case "top right":
+					           alert("you go forward then right");
+                                Forest();
+                        break;
+				        case "left":
+					           alert("you go to the left");
+					           Forest();
+				        break;
+				        case "right":
+					           alert("you go to the right");
+					           Forest();
+				        break;
+                        case "bottom left":
+					           alert("you go to the bottom left");
+					           Forest();
+                        break;
+                        case "bottom right":
+					           alert("you go to the bottom right");
+					           Forest();
+                        break;
+				        default:
+					           alert("I don't know what "+insideforest+" is!");
+					           Forest();
+                        break; 
+                    }
+    }
     function Swamp(){
         var swampEnv = prompt("This is dark swamp. \n -follow path \n -swim");
         
@@ -133,61 +203,6 @@ function Game(){
     }
     }
     
-    function Blacksmithshop(){
-            alert("The Blacksmith wonders why a bug is in his shop");
-                var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n -leave shop");
-                    if(blacksmith == "sword" || blacksmith == "buy sword" && inventory.coins >=100){
-                        var swordBuy = confirm("Are you sure you want to buy this sword?");
-                        if(swordBuy){
-                            // Adds sword +1
-                            inventory.sword ++;
-                            // displays swords owned
-                            alert("You own" +inventory.sword+"swords");
-                            // Takes money out of account for swords
-                            inventory.coins = inventory.coins - 100;
-                            // displays coins left in account
-                            alert("You have "+inventory.coins+"coins remaining");
-                            Blacksmith();
-                        }
-                        else{
-                        alert("Have a good day, come back again!");
-                        Village();
-                     }
-
-            }
-    }
-    function Forest(){
-                    var insideforest = prompt("-top left -top right -left -right -bottom left -bottom right").toLowerCase();
-                    
-                    switch(insideforest){
-                        case "top left" || "go top left":
-                            var topleft = prompt("you move forward then go to the left.");
-                            Forest();
-                        break;
-                        case "top right":
-					           alert("you go forward then right");
-                                Forest();
-                        break;
-				        case "left":
-					           alert("you go to the left");
-					           Forest();
-				        break;
-				        case "right":
-					           alert("you go to the right");
-					           Forest();
-				        break;
-                        case "bottom left":
-					           alert("you go to the bottom left");
-					           Forest();
-                        break;
-                        case "bottom right":
-					           alert("you go to the bottom right");
-					           Forest();
-                        break;
-				        default:
-					           alert("I don't know what "+insideforest+" is!");
-					           Forest();
-                        break; 
-                    }
-    }
+    
+    
 }
