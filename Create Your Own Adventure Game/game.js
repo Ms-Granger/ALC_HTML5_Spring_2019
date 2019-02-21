@@ -4,10 +4,6 @@
 Multiline comment
 
 */
-var checkCoins = function(){
-	alert("Gold Coins: "+player.inventory.coins.gold+);
-}
-
 var player = {
 	name:"Fred",
 	health:100,	
@@ -16,7 +12,7 @@ var player = {
             gold:20
         },
 		keys:{
-			chest:0
+			chest:0,
             hut:0,
 		},
 		food:{
@@ -27,8 +23,6 @@ var player = {
 		},
 		weapons:{
 			sword:0,
-			axe:0,
-			knife:0,
             bow:0,
             arrows:0,
             stick:0,
@@ -40,13 +34,6 @@ var player = {
 	}
 	
 }
-
-function GetRandInt(max){
-	var randInt = Math.floor(Math.random()* Math.floor(max));
-	
-	return randInt;
-	
-}
  
 // Start Game
 Game();
@@ -56,7 +43,7 @@ function Game(){
     // document.write("");
     alert("Welcome to your new adventure!");
     var playerName = prompt("What is your name?");
-    alert("Hello"  +playerName);
+    alert(" Hello "  +playerName);
     
     School();
         
@@ -64,13 +51,13 @@ function Game(){
             var school = prompt("You are in a Gym. You can look around.").toLowerCase();
             
             if(school == "look around" || school == "look"){
-                    var schoolLook = prompt("The Gym is big with four doors.There is a door in front of you, A door to your right, A door to your left. And a door behind you. Which path will you take? Or will you Quit before you even started!");
+                    var schoolLook = prompt("The Gym is big with four doors.There is a door in front of you, A door to your right, A door to your left. And a door behind you. Which path will you take?");
                     var inschool = prompt( "\n- go left \n- go right \n- go forward \n- go behind")
                 if(inschool == "go left" || inschool == "left"){
-                    var inschool = prompt("You go to the left ");
+                    var inschool = prompt("You go to the door to the left ");
                     }
                 else if(inschool == "go right" || inschool == "right"){
-                    var inschool = prompt("You go to the right");
+                    var inschool = prompt("You go to the door to the right");
                     }
                 else if(inschool == "go forward" || "forward"){
                     var inschool = prompt("You go to the classroom infront of you.");
@@ -78,7 +65,7 @@ function Game(){
                 else if(inschool == "go behide" || "behind"){
                     var inschool = prompt("You go to the classroom behide you.");
                     }
-            }
+            
             else if(school == "think"){
                     alert("You think Hey do I actully want to play this game");
                     var resume = confirm("Do you wish to continue?");
@@ -94,7 +81,7 @@ function Game(){
                 else if(school == "swamp"){
                         Swamp();
                 }
-                
+    
                 else if(school == "coins"){
                         checkCoins();
                         School();
@@ -124,7 +111,7 @@ function Game(){
                         }
                         else{
                         alert("Have a good day, come back again!");
-                        Village();
+                        Forest();
                      }
 
             }
@@ -145,6 +132,13 @@ function Game(){
 				        case "left":
 					           alert("you go to the left");
 					           Forest();
+                            
+                            function GetRandInt(max){
+	                           var randInt = Math.floor(Math.random()* Math.floor(max));
+	
+	                       return randInt;
+	
+                            }
 				        break;
 				        case "right":
 					           alert("you go to the right");
@@ -205,4 +199,5 @@ function Game(){
     
     
     
+    }
 }
