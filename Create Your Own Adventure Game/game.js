@@ -4,6 +4,10 @@
 Multiline comment
 
 */
+var inventory ={
+    arrows:0,
+    maxArrows:100,
+}
 var player = {
 	name:"Fred",
 	health:100,	
@@ -44,6 +48,9 @@ function Game(){
     alert("Welcome to your new adventure!");
     var playerName = prompt("What is your name?");
     alert(" Hello "  +playerName);
+    while(!confirm("Are you sure you want "+playerName+" as a name")){
+            playerName = prompt("What name do you want?");
+    }
     
     School();
         
@@ -97,8 +104,10 @@ function Game(){
     }
     
     function Blacksmithshop(){
-            alert("The Blacksmith wonders why a bug is in his shop");
-                var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n -leave shop");
+        var arrowsinShop = 100;
+        var arrowPrice = 1;
+            alert("The Blacksmith wonders why a bug is doing in his shop");
+                var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n -arrows \n -leave shop");
                     if(blacksmith == "sword" || blacksmith == "buy sword" && inventory.coins >=100){
                         var swordBuy = confirm("Are you sure you want to buy this sword?");
                         if(swordBuy){
@@ -111,9 +120,16 @@ function Game(){
                             // displays coins left in account
                             alert("You have "+inventory.coins+"coins remaining");
                             Blacksmith();
+                        else if(blacksmith == "arrows" || blacksmith == "arrow"){
+                            var arrowCon = prompt("How many arrows do you want to buy?");
+                            
+                            while(!comfirm("Are you sure you want to buy "+arrowCon+" arrows, for "+arrowPrice+" an arrow")){
+                                arrowCon = prompt("How many arrows do you wish to buy?");
+                            }
+                        
+                    }
                         }
-                        else{
-                        alert("Have a good day, come back again!");
+                        else if(blacksmith == "exit" || blacksmith == "leave");{
                         Forest();
                      }
 
