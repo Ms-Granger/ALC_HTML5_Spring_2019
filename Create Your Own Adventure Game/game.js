@@ -126,6 +126,11 @@ function Game(){
                             while(!comfirm("Are you sure you want to buy "+arrowCon+" arrows, for "+arrowPrice+" an arrow")){
                                 arrowCon = prompt("How many arrows do you wish to buy?");
                             }
+                            for(i = 1; i <= arrowCon; i++){
+				                        inventory.arrows ++;
+				                        console.log("You have "+inventory.arrows+" arrows");				
+			                 }
+                            alert("You have purchased "+arrowCon+" arrows. Thank you!");
                         
                     }
                         }
