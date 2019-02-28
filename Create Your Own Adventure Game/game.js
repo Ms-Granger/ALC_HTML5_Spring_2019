@@ -4,10 +4,6 @@
 Multiline comment
 
 */
-var inventory ={
-    arrows:0,
-    maxArrows:100,
-}
 var player = {
 	name:"Fred",
 	health:100,	
@@ -34,7 +30,11 @@ var player = {
 		armor:{
 			shield:0,
 			armor:0,
-		}		
+		},
+        potions:{
+            heal:0,
+            strength:0
+        }    
 	}
 	
 }
@@ -58,20 +58,23 @@ function Game(){
             var school = prompt("You are in a Gym. You can look around.").toLowerCase();
             
             if(school == "look around" || school == "look"){
-                    var schoolLook = prompt("The Gym is big with four doors. There is a door in front of you. A door to your right. A door to your left. And a door behind you. Which path will you take? \n- go left \n- go right \n- go forward \n- go behind")
-                if(inschool == "go left" || inschool == "left"){
-                    var inschool = prompt("You go to the door to the left. You enter a classroom. There is a bookshelf against the wall. You see that there is stuff on the teacher's desk and student's desk. \n- go to student's desk \n- go to teacher's desk \n- leave room");
-                    var studentdesk = prompt("You go to the student's desk. You see a few coins on the desk. And a couple of arrows on the desk. Do you want to take the items? \n- take");
+                    var schoolLook = prompt("The Gym is big with four doors. There is a door in front of you. A door to your right. A door to your left. And a door behind you. Which path will you take? \n- go left \n- go right \n- go forward \n- go behind");
+            }
+                 var inschool = prompt("You go to the door to the left. You enter a classroom. There is a bookshelf against the wall. You see that there is stuff on the teacher's desk and student's desk. \n- go to student's desk \n- go to teacher's desk \n- leave room");
+                 if(inschool == "go left" || inschool == "left"){
+                    var studentdesk = prompt("You go to the student's desk. You see a few coins on the desk. And a couple of arrows on the desk. Do you want to take the items? \n- take \n- teacher's room \n- leave room");
                     if(studentdesk == "take"){
-                             inventory.coins +20;
-                            inventory.arrows +5;
+                            inventory.coins +20;
+                            inventory.arrows +15;
                     }
+                
                     
-                    var teacherdesk = prompt("You go to the teacher's desk. You can see that there is an apple on the desk and a ruler. ");
+                    var teacherdesk = prompt("You go to the teacher's desk. You can see that there is an apple on the desk and a ruler. \n- take \n- student's desk \n- leave room");
                     
-                    }
+                }
+            
                 else if(inschool == "go right" || inschool == "right"){
-                    var inschool = prompt("You go to the door to the right");
+                    var inschool = prompt("You go to the door to the right. You have entered the Teacher's l. There is a long table with many things on it. ");
                     }
                 else if(inschool == "go forward" || "forward"){
                     var inschool = prompt("You go to the classroom infront of you.");
@@ -79,18 +82,10 @@ function Game(){
                 else if(inschool == "go behide" || "behind"){
                     var inschool = prompt("You go to the classroom behide you.");
                     }
-            
-            else if(school == "think"){
-                    alert("You think Hey do I actully want to play this game");
-                    var resume = confirm("Do you wish to continue?");
-                    
-                    if(resume){
-                        School();
-                    }
                     else{
                             alert("Game Over!!");
                     }
-                }
+                
                 
                 else if(school == "swamp"){
                         Swamp();
@@ -106,7 +101,8 @@ function Game(){
                     School();
                 }
             }
-    }
+    
+    
     
     function Blacksmithshop(){
         var arrowsinShop = 100;
@@ -212,12 +208,12 @@ function Game(){
         
         if(swampEnv == "follow" || swampEnv == "follow path"){
             var swampPath = prompt("You enter on the swamp path and head northeast in the disance you see a swamp hut. As you approach you see a light burning inside. \n- enter hut \n- burn down hut");
-            if(swampPath = "enter"){
+            if(swampPath == "enter"){
                 alert("You entered the hut. There is a Witch bend over a black cauldron on the fire.");
                 var insideHut = prompt("\n- say hello \n- look at \n- kill witch")
                 if(insideHut == "say hello" || insideHut == "say hi"){
-                    var huthello = prompt("You say hello and the witch turns around and She is shooked that someone was nice enough to say hello that she give you a health potion.");
-                    inventory.potion +healthpotion
+                    var huthello = prompt("You say hello and the witch turns around and She is shocked that someone was nice enough to say hello that she give you a health potion.");
+                    player.inventory.potions.heal ++;
                     }
                 else if(insideHut == "look at" || insideHut == "look"){
                     var hutlook = prompt("You look at the Witch and you realize she is making some dinner for herself. \n- introduce yourself /n- kill her");
