@@ -61,8 +61,13 @@ function Game(){
                     var schoolLook = prompt("The Gym is big with four doors. There is a door in front of you. A door to your right. A door to your left. And a door behind you. Which path will you take? \n- go left \n- go right \n- go forward \n- go behind")
                 if(inschool == "go left" || inschool == "left"){
                     var inschool = prompt("You go to the door to the left. You enter a classroom. There is a bookshelf against the wall. You see that there is stuff on the teacher's desk and student's desk. \n- go to student's desk \n- go to teacher's desk \n- leave room");
-                    var studentdesk = prompt("You go to the student's desk. You see a few coins on the desk. And a couple of arrows on the desk. You collect the arrows and the gold.")
-                    var teacherdesk = prompt("You go to the teacher's desk. You can see that there is an apple on the desk and a ruler. ")
+                    var studentdesk = prompt("You go to the student's desk. You see a few coins on the desk. And a couple of arrows on the desk. Do you want to take the items? \n- take");
+                    if(studentdesk == "take"){
+                             inventory.coins +20;
+                            inventory.arrows +5;
+                    }
+                    
+                    var teacherdesk = prompt("You go to the teacher's desk. You can see that there is an apple on the desk and a ruler. ");
                     
                     }
                 else if(inschool == "go right" || inschool == "right"){
@@ -107,8 +112,8 @@ function Game(){
         var arrowsinShop = 100;
         var arrowPrice = 1;
             alert("The Blacksmith wonders why a bug is doing in his shop");
-                var blacksmith = prompt("What do you want to buy? \n -sword \n -shield \n -armor \n -arrows \n -leave shop");
-                    if(blacksmith == "sword" || blacksmith == "buy sword" && inventory.coins >=100){
+                var blacksmith = prompt("What do you want to buy? \n- sword \n- shield \n- armor \n- arrows \n- leave shop");
+                    if(blacksmith == "sword" || blacksmith == "buy sword" && inventory.coins >=30){
                         var swordBuy = confirm("Are you sure you want to buy this sword?");
                         if(swordBuy){
                             // Adds sword +1
@@ -116,10 +121,37 @@ function Game(){
                             // displays swords owned
                             alert("You own" +inventory.sword+"swords");
                             // Takes money out of account for swords
-                            inventory.coins = inventory.coins - 100;
+                            inventory.coins = inventory.coins - 30;
                             // displays coins left in account
                             alert("You have "+inventory.coins+"coins remaining");
                             Blacksmith();
+                        }
+                         if(blacksmith == "shield" || blacksmith == "buy shield" && inventory.coins >=25){
+                        var swordBuy = confirm("Are you sure you want to buy a shield?");
+                        if(swordBuy){
+                            // Adds shield +1
+                            inventory.shield ++;
+                            // displays shields owned
+                            alert("You own" +inventory.shield+"shield");
+                            // Takes money out of account for shields
+                            inventory.coins = inventory.coins - 25;
+                            // displays coins left in account
+                            alert("You have "+inventory.coins+"coins remaining");
+                            Blacksmith();
+                        }
+                        else if(blacksmith == "armor" || blacksmith == "buy armor" && inventory.coins >=30){
+                        var armorBuy = confirm("Are you sure you want to buy armor?");
+                        if(armorBuy){
+                            // Adds armor +1
+                            inventory.armor ++;
+                            // displays armor owned
+                            alert("You own" +inventory.armor+"armor");
+                            // Takes money out of account for armor
+                            inventory.coins = inventory.coins - 30;
+                            // displays coins left in account
+                            alert("You have "+inventory.coins+"coins remaining");
+                            Blacksmith();
+                        }
                         else if(blacksmith == "arrows" || blacksmith == "arrow"){
                             var arrowCon = prompt("How many arrows do you want to buy?");
                             
@@ -137,7 +169,7 @@ function Game(){
                         else if(blacksmith == "exit" || blacksmith == "leave");{
                         Forest();
                      }
-
+                }
             }
     }
     
@@ -176,18 +208,19 @@ function Game(){
                     }
     }
     function Swamp(){
-        var swampEnv = prompt("This is dark swamp. \n -follow path \n -swim");
+        var swampEnv = prompt("This is dark swamp. \n- follow path \n- swim");
         
         if(swampEnv == "follow" || swampEnv == "follow path"){
-            var swampPath = prompt("You enter on the swamp path and head northeast in the disance you see a swamp hut. As you approach you see a light burning inside. \n -enter hut \n -burn down hut");
+            var swampPath = prompt("You enter on the swamp path and head northeast in the disance you see a swamp hut. As you approach you see a light burning inside. \n- enter hut \n- burn down hut");
             if(swampPath = "enter"){
                 alert("You entered the hut. There is a Witch bend over a black cauldron on the fire.");
-                var insideHut = prompt("\n -say hello \n- look at \n -kill witch")
+                var insideHut = prompt("\n- say hello \n- look at \n- kill witch")
                 if(insideHut == "say hello" || insideHut == "say hi"){
                     var huthello = prompt("You say hello and the witch turns around and She is shooked that someone was nice enough to say hello that she give you a health potion.");
+                    inventory.potion +healthpotion
                     }
                 else if(insideHut == "look at" || insideHut == "look"){
-                    var hutlook = prompt("You look at the Witch and you realize she is making some dinner for herself. \n -introduce yourself /n -kill her");
+                    var hutlook = prompt("You look at the Witch and you realize she is making some dinner for herself. \n- introduce yourself /n- kill her");
                     var introduceyourself = prompt("Hello my name is" +playerName);
                      function GetRandInt(max){
 	                           var randInt = Math.floor(Math.random()* Math.floor(2));
@@ -201,6 +234,7 @@ function Game(){
                     }
                 else if(insideHut == "kill witch"){
                         var attackWitch = prompt("You rush the witch and smit her before she realizes you were there. You are now Witch Hunter. Gain a health potion");
+                    inventory.potion +healthpotion
                     }
                     
             
