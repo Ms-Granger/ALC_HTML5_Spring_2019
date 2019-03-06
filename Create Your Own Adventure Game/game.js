@@ -64,13 +64,15 @@ function Game(){
                  if(inschool == "go left" || inschool == "left"){
                     var studentdesk = prompt("You go to the student's desk. You see a few coins on the desk. And a couple of arrows on the desk. Do you want to take the items? \n- take \n- teacher's room \n- leave room");
                     if(studentdesk == "take"){
-                            inventory.coins +20;
-                            inventory.arrows +15;
+                            player.inventory.coins +20;
+                            player.inventory.weapons.arrows +15;
                     }
                 
-                    
-                    var teacherdesk = prompt("You go to the teacher's desk. You can see that there is an apple on the desk and a ruler. \n- take \n- student's desk \n- leave room");
-                    
+                     var teacherdesk = prompt("You go to the teacher's desk. You can see that there is an apple on the desk and a ruler. \n- take \n- student's desk \n- leave room");
+                    if(studentdesk == "take"){
+                        player.inventory.weapons.stick ++;
+                        player.inventory.food.apple ++;
+                    }
                 }
             
                 else if(inschool == "go right" || inschool == "right"){
@@ -82,12 +84,8 @@ function Game(){
                 else if(inschool == "go behide" || "behind"){
                     var inschool = prompt("You go to the classroom behide you.");
                     }
-                    else{
-                            alert("Game Over!!");
-                    }
                 
-                
-                else if(school == "swamp"){
+                else if(school == "swamp" || "Swamp"){
                         Swamp();
                 }
     
@@ -203,8 +201,9 @@ function Game(){
                         break; 
                     }
     }
+    
     function Swamp(){
-        var swampEnv = prompt("This is dark swamp. \n- follow path \n- swim");
+        var swampEnv = prompt("You have enter a Swamp. \n- follow path");
         
         if(swampEnv == "follow" || swampEnv == "follow path"){
             var swampPath = prompt("You enter on the swamp path and head northeast in the disance you see a swamp hut. As you approach you see a light burning inside. \n- enter hut \n- burn down hut");
@@ -212,11 +211,11 @@ function Game(){
                 alert("You entered the hut. There is a Witch bend over a black cauldron on the fire.");
                 var insideHut = prompt("\n- say hello \n- look at \n- kill witch")
                 if(insideHut == "say hello" || insideHut == "say hi"){
-                    var huthello = prompt("You say hello and the witch turns around and She is shocked that someone was nice enough to say hello that she give you a health potion.");
+                    alert("You say hello and the witch turns around and She is shocked that someone was nice enough to say hello that she give you a health potion.");
                     player.inventory.potions.heal ++;
                     }
                 else if(insideHut == "look at" || insideHut == "look"){
-                    var hutlook = prompt("You look at the Witch and you realize she is making some dinner for herself. \n- introduce yourself /n- kill her");
+                    alert("You look at the Witch and you realize she is making some dinner for herself. \n- introduce yourself /n- kill her");
                     var introduceyourself = prompt("Hello my name is" +playerName);
                      function GetRandInt(max){
 	                           var randInt = Math.floor(Math.random()* Math.floor(2));
@@ -228,9 +227,10 @@ function Game(){
                     var afterintro = prompt("She doesn't like the sound of your name. She doesn't like you.")
                     var killwitch = prompt("Wow you killed her. Gain a health potion");
                     }
+                    }
                 else if(insideHut == "kill witch"){
-                        var attackWitch = prompt("You rush the witch and smit her before she realizes you were there. You are now Witch Hunter. Gain a health potion");
-                    inventory.potion +healthpotion
+                        alert("You rush the witch and smit her before she realizes you were there. You are now Witch Hunter. Gain a health potion");
+                    player.inventory.potions.heal ++;
                     }
                     
             
@@ -241,16 +241,8 @@ function Game(){
             else{
                 alert("Don't throw Rocks at the hut Please!");
             }
-            
-    }
-    else if(swampEnv == "Swim"){
-        
-    }
     
-    else{
-            alert("I don't understand"+swampEnv);
     }
-    }
-    
+
     
 }
