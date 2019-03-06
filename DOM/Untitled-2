@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercise #2</title>
+        
+        
+   </head>
+   <body>
+   
+        <button onclick="document.getElementById('myimage').src='DC_Comics.jpg'">Which is better</button>
+        
+        <img id="myimage" src="marvel.jpg" style="width:200px; height:300px;">
+        
+        <button onclick="document.getElementById('myImage').src='marvel.jpg'">Which is better</button>
+		
+        
+
+	</body>
+</html>
