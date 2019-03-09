@@ -17,8 +17,7 @@ var player = {
 		},
 		food:{
 			water:1,
-			bread:0,
-			fish:0,
+			lunch:0,
 			apple:0,			
 		},
 		weapons:{
@@ -51,17 +50,27 @@ function Game(){
     while(!confirm("Are you sure you want "+playerName+" as a name")){
             playerName = prompt("What name do you want?");
     }
-    
     School();
         
     function School(){
-            var school = prompt("You are in a Gym. You can look around.").toLowerCase();
+            var school = prompt("You wake up in a Gym at a school. \n- look").toLowerCase();
             
             if(school == "look around" || school == "look"){
-                    var schoolLook = prompt("The Gym is big with four doors. There is a door in front of you. A door to your right. A door to your left. And a door behind you. Which path will you take? \n- go left \n- go right \n- go forward \n- go behind");
+                    var schoolLook = prompt("The Gym is big with four doors. There is a door in front of you. A door to your right. A door to your left. And a door behind you. Which path will you take? \n- go left \n- go right \n- go forward \n- go behind \n- stop");
             }
-                 var inschool = prompt("You go to the door to the left. You enter a classroom. There is a bookshelf against the wall. You see that there is stuff on the teacher's desk and student's desk. \n- go to student's desk \n- go to teacher's desk \n- leave room");
-                 if(inschool == "go left" || inschool == "left"){
+            if(school == "stop"){
+                var resume = confirm("Do you wish to continue?");
+			
+			     if(resume){
+				Prison();
+			}
+			else{
+				alert("Game Over!");
+}
+            }
+            else if(school)
+                 var school = prompt("You go to the door to the left. You enter a classroom. There is a bookshelf against the wall. You see that there is stuff on the teacher's desk and student's desk. \n- go to student's desk \n- go to teacher's desk \n- leave room");
+                 if(school == "go left" || school == "left"){
                     var studentdesk = prompt("You go to the student's desk. You see a few coins on the desk. And a couple of arrows on the desk. Do you want to take the items? \n- take \n- teacher's room \n- leave room");
                     if(studentdesk == "take"){
                             player.inventory.coins +20;
@@ -70,32 +79,89 @@ function Game(){
                 
                      var teacherdesk = prompt("You go to the teacher's desk. You can see that there is an apple on the desk and a ruler. \n- take \n- student's desk \n- leave room");
                     if(studentdesk == "take"){
-                        player.inventory.weapons.stick ++;
-                        player.inventory.food.apple ++;
+                        player.inventory.weapons.stick +1;
+                        player.inventory.food.apple +1;
+                    }
+                    if(teacherdesk == "student's desk"){
+                         studentdesk();
+                     }
+                    if(teacherdesk == "leave room"){
+                        School();
                     }
                 }
             
-                else if(inschool == "go right" || inschool == "right"){
-                    var inschool = prompt("You go to the door to the right. You have entered the Teacher's l. There is a long table with many things on it. ");
+                else if(school == "go right" || school == "right"){
+                    var school = prompt("You go to the door to the right. You have entered the Teacher's Lounge. There is a long table with many things on it. There is someone's water bottle with an apple. On the other side of the table there is a bow with some arrows. The bow and arrows are weird thing to find in a Teacher's Lounge but you don't question it, because now you can get a bow with some arrows. Would you like to the table? \n- table \n- leave room");
+                    if(school == "table"){
+                        var table = prompt("Which side of the table? \n- food side \n- bow side");
+                        if(table == food side){
+                            var foodSide = prompt("Would you like to take the water and apple? \n- take");
+                        
+                        if(foodSide == take){
+                            player.inventory.food.water +1;
+                            player.inventory.food.apple +1;
+                        }
+                        }    
+                        if(table == bow side){
+                            var bowSide = prompt("Would you like to take the bow and arrows? \n- take");
+                            player.inventory.weapons.bow +1;
+                            player.inventory.weapons.arrows +5;
+                        }
                     }
-                else if(inschool == "go forward" || "forward"){
-                    var inschool = prompt("You go to the classroom infront of you.");
+                    
                     }
-                else if(inschool == "go behide" || "behind"){
-                    var inschool = prompt("You go to the classroom behide you.");
+                else if(school == "go forward" || school == "forward"){
+                    var school = prompt("You go to the room infront of you. You've enter the cafe in the school. There are 2 tables. One with a kid's lunch on it with an apple. And the other table has a mysterious key on it with some gold. \n- First Table \n- Second Table");
+                    var firstTable = prompt("The kid's lunch and the apple is great for your health. \n- take \n- second table \n- leave room");
+                    if(firstTable == take){
+                        player.inventory.food.lunch +1;
+                        player.inventory.food.apple +1;
+                    }
+                    if(firstTable == second table){
+                        secondTable();
+                    }
+                    if(firstTable == leave room){
+                        School();
+                    }
+                    var secondTable = prompt("The key makes you want to go to the room that is behind you when you are in the Gym. And having some gold is too. \n- take \n- first table \n- leave room");
+                    if(secondTable == take){
+                        player.inventory.keys.chest +1;
+                        player.inventory.coins +5;
+                    }
+                    if(secondTable == first table){
+                        firstTable();
+                    }
+                    if(secondTable == leave room){
+                        School();
+                    }
+                    }
+                else if(inschool == "go behide" || school == "behind"){
+                    var school = prompt("You go to the classroom behide you. You find that the room has big chest in the room. With arrows scattered around the room. \n- open chest \n- take arrows \n- leave room");
+                    if(school == open chest){
+                        player.inventory.keys.chest -1;
+                        player.inventory.coins +100;
+                        player.inventory.armor.armor +1;
+                        player.inventory.armor.shield +1;
+                    }
+                    if(school == take arrows){
+                        player.inventory.weapons.arrows +10;
+                    }
+                    if(school == leave room){
+                        School();
+                    }
                     }
                 
-                else if(school == "swamp" || "Swamp"){
+                else if(school == "swamp" || school == "Swamp"){
                         Swamp();
                 }
     
-                else if(school == "coins"){
+                else if(inschool == "coins"){
                         checkCoins();
                         School();
                 }
                 
                 else{
-                    alert("I don't know what "+school+" is!");
+                    alert("I don't know what "+inschool+" is!");
                     School();
                 }
             }
@@ -243,6 +309,5 @@ function Game(){
             }
     
     }
-
     
 }
