@@ -3,17 +3,18 @@
 <body>
 
 <canvas id="myCanvas" width="800" height="600"    
-style="border: 1px solid #000000;">
+style="border: 1px solid black;">
 </canvas>
 <script>
     //Setup Canvas
     var canvas = document.getElementById("my Canvas");
     var ctx = canvas.getContext("2d");
     //Draw Rectangle
-    ctx.fillStyle = "#FF0000";
+    ctx.fillStyle = "DarkSlateBlue";
     ctx.fillRect(0,0,200,50);
     // Draw a line
     ctx.moveTo(0,0);
+    ctx.lineTo(200, 100);
     ctx.stroke();
     //Draw Circle with Gradient
 		var x = 100,
@@ -25,13 +26,13 @@ style="border: 1px solid #000000;">
 		radius = 60;
     
 		var gradient = ctx.createRadialGradient(x, y, innerRadius, x, y, outerRadius);
-		gradient.addColorStop(0, "white");
-		gradient.addColorStop(1, "blue");
+		gradient.addColorStop(0, "red");
+		gradient.addColorStop(1, "black");
     
 		ctx.arc(x, y, radius, 0, 2 * Math.PI);
     
 		ctx.fillStyle = gradient;
-		ctx.fill();
+		ctx.fillRect(10,10,150,80);
     </script>    
     
     
