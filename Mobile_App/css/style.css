@@ -1,3 +1,37 @@
+/* Google Fonts 
+
+    font-family: 'Oswald', sans-serif;
+
+    font-family: 'Lora', serif;
+
+    font-family: 'Anton', sans-serif;
+
+    font-family: 'Indie Flower', cursive;
+
+    font-family: 'Lobster', cursive;
+
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+
+    font-family: 'Abril Fatface', cursive;
+
+    font-family: 'Bree Serif', serif;
+
+    font-family: 'Teko', sans-serif;
+
+    font-family: 'Righteous', cursive;
+
+    font-family: 'Cinzel', serif;
+
+    font-family: 'Satisfy', cursive;
+
+    font-family: 'Kaushan Script', cursive;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-family: 'Russo One', sans-serif;
+
+*/
+
 /* Stylesheet for Mobile App */
 /* Reset */
 html,body,div,p,ul,ol,li,h1,h2,h3,h4,h5,h6
@@ -25,7 +59,7 @@ header{
 
 header h1{
     color: darkslateblue;
-    font-family: "Tahoma", sans-serif;
+    font-family: 'Russo One', sans-serif;
     font-size: 2em;
 }
 
@@ -37,12 +71,30 @@ div#content{
 nav{
     background-color: aquamarine;
     color: darkslategrey;
-    font-family: fantasy;
-    font-size: 1.25em;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5em;
 }
-
+nav ul{
+    list-style: none;
+}
+nav ul li{
+    float: left;
+    padding: 5px 15px;
+    border-right: 2px dashed darkslateblue;
+}
+nav ul li a{
+    color:darkslategrey;
+    text-decoration: underline;
+}
+nav ul li a:hover{
+    background-color:dodgerblue;
+    color: aliceblue;
+}
 footer{
     width: 100%;
     height: 50px;
     background-color: aqua;
+}
+div.keepOpen{
+    clear: both;
 }
