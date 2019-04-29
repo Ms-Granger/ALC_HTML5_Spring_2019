@@ -67,6 +67,7 @@ div#content{
     background-color:aliceblue;
 }
 
+/*
 nav{
     background-color: aquamarine;
     color: darkslategrey;
@@ -88,6 +89,34 @@ nav ul li a:hover{
     background-color:dodgerblue;
     color: aliceblue;
 }
+*/
+.icon-bar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color:aqua;
+    overflow: auto;
+}
+
+.icon-bar a{
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+}
+
+.icon-bar a:hover{
+    background-color: darkviolet;
+}
+
+.active{
+    background-color: deepskyblue;
+}
+/*
 footer{
     position: absolute;
     bottom: 0;
@@ -111,4 +140,4 @@ div.keepOpen{
         text-align: center;
     }
     
-}
+}*/
