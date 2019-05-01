@@ -56,8 +56,15 @@ header{
     background-color: cadetblue;
 }
 
+header img#applogo{
+    display: block;
+    margin: auto;
+    width: 100px;
+}
+
 header h1{
     color: darkslateblue;
+    text-align: center;
     font-family: 'Russo One', sans-serif;
     font-size: 2em;
 }
