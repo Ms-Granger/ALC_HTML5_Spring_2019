@@ -13,12 +13,91 @@
         
         <div id="container">
             <header id="head">
-                <img scr="img/New_App_Logo.png" id="applogo" alt="App logo">
+                <img src="img/New_App_Logo.png" id="applogo" alt="App logo">
                 <h1>Talk and Build Your Business</h1>
                 
             </header>
             <div id="content">
-                <h3>New Products</h3>
+                <h3>Companies</h3>
+                 <input type="text" id="filterInput" placeholder="Search names...">
+          
+        <ul id="names" class="collection with-header">
+          <li class="collection-header">
+            <h5>A</h5>
+          </li>
+          <li class="collection-item">
+            <a href="#">Alan</a>
+          </li>
+          <li class="collection-item">
+            <a href="#">Alyssa</a>
+          </li>
+          <li class="collection-item">
+            <a href="#">Ariana</a>
+              
+          </li>
+          <li class="collection-item">
+            <a href="#">Aspen</a>
+          </li>
+          <li class="collection-header">
+            <h5>B</h5>
+          </li>
+          <li class="collection-item">
+            <a href="#">Business Network BNI</a>
+          </li>
+          <li class="collection-item">
+            <a href="#">Bethany</a>
+          </li>
+          <li class="collection-item">
+            <a href="#">Branden</a>
+          </li>
+          <li class="collection-item">
+            <a href="#">Brenda</a>
+          </li>
+          <li class="collection-header">
+            <h5>C</h5>
+          </li>
+          <li class="collection-item">
+            <a href="#">Camryn</a>
+          </li>
+          <li class="collection-item">
+            <a href="#">Chris</a>
+          </li>
+          <li class="collection-item">
+            <a href="#">Cora</a>
+            </li>
+          <li class="collection-item">
+            <a href="#">Courtney</a>
+          </li>
+        </ul>
+      </div>
+
+      <script>
+        // Get input element
+        let filterInput = document.getElementById('filterInput');
+        // Add event listener
+        filterInput.addEventListener('keyup', filterNames);
+          
+        function filterNames(){
+          // Get value of input
+          let filterValue = document.getElementById('filterInput').value.toUpperCase();
+            
+          // Get names ul
+          let ul = document.getElementById('names');
+          // Get lis from ul
+          let li = ul.querySelectorAll('li.collection-item');
+            
+          // Loop through collection-item lis
+          for(let i = 0;i < li.length;i++){
+            let a = li[i].getElementsByTagName('a')[0];
+            // If matched
+            if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+              li[i].style.display = '';
+            } else {
+              li[i].style.display = 'none';
+            }
+          }
+        }
+      </script>-->
                
             </div>
             <div class="icon-bar">
