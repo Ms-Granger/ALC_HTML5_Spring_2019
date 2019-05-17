@@ -59,7 +59,7 @@ header{
 header img#applogo{
     display: block;
     margin: auto;
-    width: 100px;
+    width: auto;
 }
 
 header h1{
@@ -150,20 +150,24 @@ div.keepOpen{
 }*/
 
 div#product_grp{
-    width: auto;
+    max-width: 60%;
+    min-width: 20%;
     margin: auto;
 }
 
 figure.product{
+    display: block;
     float: left;
-    width: 20%;
-    background-color: black;
+    margin: 10px 15px;
+    max-width: 45%;
+    min-width: 30%;
+    background-color: cornsilk;
 }
 
 figure.product img{
     display: block;
     padding: 10px 0;
-    width: auto;
+    width: 100%;
     margin: auto;
 }
 
@@ -171,9 +175,9 @@ figure.product img{
 
 figure.product figcaption{
     text-align: center;
-    color: aqua;
+    color: black;
     font-family: fantasy;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 div.keepOpen{
